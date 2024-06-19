@@ -1,0 +1,45 @@
+1=Customer Table
+CREATE TABLE Customer (
+    c_id INT PRIMARY KEY,
+    c_name VARCHAR(255),
+    c_numberWaiter Table
+
+2=Waiter Table
+CREATE TABLE Waiter (
+    w_id INT PRIMARY KEY,
+    w_name VARCHAR(255)
+);
+
+3=Chef Table
+CREATE TABLE Chef (
+    chef_id INT PRIMARY KEY,
+    chef_name VARCHAR(255)
+);
+
+4=Order Table
+CREATE TABLE `Order` (
+    order_no INT PRIMARY KEY,
+    item_no INT,
+    c_id_fk INT,
+    chef_id_fk INT,
+    FOREIGN KEY (c_id_fk) REFERENCES Customer(c_id),
+    FOREIGN KEY (chef_id_fk) REFERENCES Chef(chef_id)
+);
+
+5=Food Table
+CREATE TABLE Food (
+    quantity INT,
+    price DECIMAL(10, 2),
+    order_no_fk INT,
+    FOREIGN KEY (order_no_fk) REFERENCES `Order`(order_no)
+);
+
+6=Bill Table
+CREATE TABLE Bill (
+    b_no INT PRIMARY KEY,
+    price DECIMAL(10, 2),
+    c_id_fk INT,
+    order_no_fk INT,
+    FOREIGN KEY (c_id_fk) REFERENCES Customer(c_id),
+    FOREIGN KEY (order_no_fk) REFERENCES `Order`(order_no)
+); 
