@@ -1,0 +1,10 @@
+ Project Structure
+/project
+  /static
+    /css
+      styles.css
+    /js
+      scripts.js
+  /templates
+    index.html
+  server.js (or app.py for Flask, views.py for Django)
